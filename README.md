@@ -21,10 +21,11 @@
 
 1. 
 2.
-3.
+3. -->
 
 ## Release History
 
+- 0.2: Added: background, input field, favicon.
 - 0.1: Initial release.
 
 <!-- <details> -->
@@ -51,6 +52,8 @@ Using [SemVer](http://semver.org/).
 
 - [Flask](https://flask.palletsprojects.com/en/2.2.x/)
 - [ChatGPT](https://chat.openai.com/chat)
+- Icons from [Flaticon](https://www.flaticon.com)
+- PNG → ICO conversion with [ConvertICO](https://convertico.com)
 
 ## Contributing
 
