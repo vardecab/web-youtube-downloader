@@ -25,6 +25,7 @@
 
 ## Release History
 
+- 0.3: Added: taking data from the input field and storing in a file.
 - 0.2: Added: background, input field, favicon.
 - 0.1: Initial release.
 
