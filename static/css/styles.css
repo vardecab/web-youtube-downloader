@@ -1,0 +1,25 @@
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	/* use grid to have content in the center */
+	display: grid;
+	justify-content: center;
+	align-content: center;
+
+	gap: 4px; /* gap between elements in the same row */
+	grid-auto-flow: column;
+
+	width: 100%;
+}
+
+.box {
+	color: #fff;
+	background: #2d2d2d;
+	padding: 12px; /* add some space around the boxes */
+	display: inline-block;
+}

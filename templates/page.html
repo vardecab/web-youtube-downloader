@@ -3,39 +3,89 @@
 
 <head>
     <title>web-youtube-downloader</title> <!-- page name-->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}"> <!-- favicon -->
-
-    <style>
-        html {
-            background: linear-gradient(to bottom right, #FCE38A, #F38181);
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        input[type=text] {
-            width: 50%;
-            height: 50px;
-            border-radius: 25px;
-            padding: 10px;
-            font-size: 20px;
-            border: none;
-            background-color: #f2f2f2;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-            outline: none;
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    </style>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}"> <!-- Flask way of getting the favicon -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> <!-- Flask way of getting the CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" 
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- import Font Awesome so we can have download icon for the submit button -->
 </head>
 
 <body>
-    <form method="post" action="/submit">
-        <input type="text" id="url" name="url" placeholder="Enter YouTube URL">
+    <!-- ----- form to request URL ----- -->
+    <form method="post" action="/submit"> 
+
+        <!-- --------- grid layout --------- -->
+        <!-- first row: input field + submit button -->
+        <div class="container">
+            <!-- input field -->
+            <div class="box">
+                <input type="text" id="url" name="url" placeholder="Enter YouTube URL">
+            </div>
+            <!-- submit button -->
+            <div class="box">
+                <button type="submit" id="submitButton">
+                    <span class="icon">&#x21E3;</span> <!-- download icon -->
+                </button>
+            </div>
+        </div>
+
+        <!-- second row: checkboxes -->
+        <div class="container">
+            <!-- first checkbox — for users who want music extracted from the video -->
+            <div class="box">
+                <label><input type="checkbox" name="download_music" id="musicCheckbox">Download
+                    music</label> <!-- checkbox with `name` for Python script and `id` for JS and CSS -->
+            </div>
+            <!-- second checkbox — for users who want to download the whole video -->
+            <div class="box">
+                <label><input type="checkbox" name="download_video" id="videoCheckbox">Download
+                    video</label> <!-- checkbox with `name` for Python script and `id` for JS and CSS -->
+            </div>
+        </div>
     </form>
+    <script>
+        // define 
+        const musicCheckbox = document.getElementById('musicCheckbox');
+        const videoCheckbox = document.getElementById('videoCheckbox');
+        const submitButton = document.getElementById("submitButton");
+
+        // see which checkbox is ticked
+        musicCheckbox.addEventListener('change', () => {
+            if (musicCheckbox.checked) {
+                videoCheckbox.checked = false;
+            }
+        });
+
+        videoCheckbox.addEventListener('change', () => {
+            if (videoCheckbox.checked) {
+                musicCheckbox.checked = false;
+            }
+        });
+
+        // make sure checkbox is ticked before submitting the form so we know if user wants music or video
+        function validateCheckboxes() {
+            // define
+            const musicChecked = document.querySelector('#musicCheckbox').checked;
+            const videoChecked = document.querySelector('#videoCheckbox').checked;
+            const submitButton = document.querySelector('button[type=submit]');
+
+            if (!musicChecked && !videoChecked) {
+                submitButton.disabled = true;
+            } else {
+                submitButton.disabled = false;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            validateCheckboxes();
+
+            const checkboxes = document.querySelectorAll('input[type=checkbox]');
+
+            for (const checkbox of checkboxes) {
+                checkbox.addEventListener('change', validateCheckboxes);
+            }
+        });
+    </script>
 </body>
 
 </html>
