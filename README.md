@@ -25,6 +25,7 @@
 
 ## Release History
 
+- 0.6: Moved JavaScript to separate file; added gradient background; centered label for URL input field; aligned checkboxes with labels.
 - 0.5: Centered the layout.
 - 0.4: Added: app now knows if user wanted to download video or just extracted music; added some simple CSS to the page; added checkboxes with JavaScript validation so user needs to select either music or video — otherwise submitting is disabled; added comments to the files. 
 - 0.3: Added: taking data from the input field and storing in a file.
@@ -57,6 +58,9 @@ Using [SemVer](http://semver.org/).
 - [ChatGPT](https://chat.openai.com/chat)
 - Icons from [Flaticon](https://www.flaticon.com)
 - PNG → ICO conversion with [ConvertICO](https://convertico.com)
+- Color palette from [Huemint](https://huemint.com/back-gradient-3/)
+- [CSS Gradient](https://cssgradient.io) for the background
+- [Aligning checkbox with label](https://stackoverflow.com/questions/306252/how-to-align-checkboxes-and-their-labels-consistently-cross-browsers#comment43209725_306252)
 
 ## Contributing
 

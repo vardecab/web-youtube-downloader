@@ -8,12 +8,20 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	/* background */
+	background: linear-gradient(to right, #70152d, #ad414f, #e8485e);
+}
+
+/* ---------- color palette --------- */
+
+:root {
+	--white: #fff;
 }
 
 /* ----------- grid layout ---------- */
 
-.top-row,
-.bottom-row {
+.row-top, .row-bottom {
 	/* use flex to have content in the center */
 	display: flex;
 	flex-wrap: wrap;
@@ -22,7 +30,23 @@ body {
 }
 
 .box {
-	color: #fff; /* font color */
-	background: #2d2d2d; /* background color */
-	padding: 12px; /* space between boxes */
+	color: var(--white); /* font color */
+	padding: 5px; /* space between boxes */
+}
+
+#field-url {
+	width: 200px; /* have URL input field a little bit wider to fit longer URLs */
+}
+
+input[type="text"] { /* center the label for URL input field*/
+	text-align: center;
+}
+
+input[type="checkbox"] { /* align checkbox with label so it doesn't look off by a few pixels */ 
+	float: left;
+    line-height: 1em;
+    height: 1.15em;
+    margin: 0px 2px;
+    padding: 0px;
+    font-size: inherit;
 }
