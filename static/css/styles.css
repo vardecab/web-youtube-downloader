@@ -1,25 +1,28 @@
-html,
+/* -------------- main -------------- */
+
 body {
-	height: 100%;
+	height: 100vh; /* full viewport */
 	margin: 0;
-	padding: 0;
+
+	/* use flex to have content in the center */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.container {
-	/* use grid to have content in the center */
-	display: grid;
+/* ----------- grid layout ---------- */
+
+.top-row,
+.bottom-row {
+	/* use flex to have content in the center */
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
-	align-content: center;
-
-	gap: 4px; /* gap between elements in the same row */
-	grid-auto-flow: column;
-
-	width: 100%;
+	align-items: center;
 }
 
 .box {
-	color: #fff;
-	background: #2d2d2d;
-	padding: 12px; /* add some space around the boxes */
-	display: inline-block;
+	color: #fff; /* font color */
+	background: #2d2d2d; /* background color */
+	padding: 12px; /* space between boxes */
 }

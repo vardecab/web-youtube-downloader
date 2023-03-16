@@ -25,6 +25,7 @@
 
 ## Release History
 
+- 0.5: Centered the layout.
 - 0.4: Added: app now knows if user wanted to download video or just extracted music; added some simple CSS to the page; added checkboxes with JavaScript validation so user needs to select either music or video — otherwise submitting is disabled; added comments to the files. 
 - 0.3: Added: taking data from the input field and storing in a file.
 - 0.2: Added: background, input field, favicon.

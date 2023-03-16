@@ -3,20 +3,24 @@
 
 <head>
     <title>web-youtube-downloader</title> <!-- page name-->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}"> <!-- Flask way of getting the favicon -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> <!-- Flask way of getting the CSS file -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" 
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- Flask way of getting the favicon -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Flask way of getting the CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- import Font Awesome so we can have download icon for the submit button -->
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- import Font Awesome so we can have download icon for the submit button -->
 </head>
 
 <body>
     <!-- ----- form to request URL ----- -->
-    <form method="post" action="/submit"> 
+    <form method="post" action="/submit">
 
-        <!-- --------- grid layout --------- -->
+        <!-- --------- flex layout --------- -->
+
         <!-- first row: input field + submit button -->
-        <div class="container">
+        <div class="top-row">
             <!-- input field -->
             <div class="box">
                 <input type="text" id="url" name="url" placeholder="Enter YouTube URL">
@@ -30,7 +34,7 @@
         </div>
 
         <!-- second row: checkboxes -->
-        <div class="container">
+        <div class="bottom-row">
             <!-- first checkbox — for users who want music extracted from the video -->
             <div class="box">
                 <label><input type="checkbox" name="download_music" id="musicCheckbox">Download
