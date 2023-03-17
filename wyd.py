@@ -40,16 +40,16 @@ def submit():
 
     # and now check if we want music or video
     # takes from `name` of the field in HTML not ID; True if checked, else False
-    music_checkbox = 'download_music' in request.form
+    musicCheckbox = 'downloadMusic' in request.form
     # takes from `name` of the field in HTML not ID; True if checked, else False
-    video_checkbox = 'download_video' in request.form
+    videoCheckbox = 'downloadVideo' in request.form
 
     # check if user wants a video (check if True (= checkbox ticked))
-    if video_checkbox:
+    if videoCheckbox:
         print("Let's download some video.")  # status
         # do some magic
         return f'URL is: {url} and we need video.'
-    elif music_checkbox:  # they don't want a video, they want music instead
+    elif musicCheckbox:  # they don't want a video, they want music instead
         print("Let's download just music from that video.")  # status
         # do some other magic
         return f'URL is: {url} and we need music.'

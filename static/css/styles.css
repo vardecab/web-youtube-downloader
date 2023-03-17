@@ -21,7 +21,7 @@ body {
 
 /* ----------- grid layout ---------- */
 
-.row-top, .row-bottom {
+.rowTop, .rowBottom {
 	/* use flex to have content in the center */
 	display: flex;
 	flex-wrap: wrap;
@@ -34,8 +34,8 @@ body {
 	padding: 5px; /* space between boxes */
 }
 
-#field-url {
-	width: 200px; /* have URL input field a little bit wider to fit longer URLs */
+#fieldURL {
+	width: 350px; /* have URL input field a little bit wider to fit longer URLs */
 }
 
 input[type="text"] { /* center the label for URL input field*/
