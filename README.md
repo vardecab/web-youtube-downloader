@@ -25,10 +25,11 @@
 
 ## Release History
 
+- 0.8: Changed checkboxes to radios; added `.strip()` method to trim whitespaces in URL.
 - 0.7: Added verification to input field to check if we have `youtube.com` or `youtu.be` URL; changed variable names to camelCase.
 - 0.6: Moved JavaScript to separate file; added gradient background; centered label for URL input field; aligned checkboxes with labels.
 - 0.5: Centered the layout.
-- 0.4: Added: app now knows if user wanted to download video or just extracted music; added some simple CSS to the page; added checkboxes with JavaScript validation so user needs to select either music or video — otherwise submitting is disabled; added comments to the files. 
+- 0.4: Added: app now knows if user wanted to download video or just extracted music; added some simple CSS to the page; added checkboxes with JavaScript validation so user needs to select either music or video — otherwise submitting is disabled; added comments to the files.
 - 0.3: Added: taking data from the input field and storing in a file.
 - 0.2: Added: background, input field, favicon.
 - 0.1: Initial release.

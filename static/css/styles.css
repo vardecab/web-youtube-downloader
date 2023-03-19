@@ -9,7 +9,7 @@ body {
 	justify-content: center;
 	align-items: center;
 
-	/* background */
+	/* gradient background */
 	background: linear-gradient(to right, #70152d, #ad414f, #e8485e);
 }
 
@@ -42,7 +42,7 @@ input[type="text"] { /* center the label for URL input field*/
 	text-align: center;
 }
 
-input[type="checkbox"] { /* align checkbox with label so it doesn't look off by a few pixels */ 
+input[type="radio"] { /* align checkbox with label so it doesn't look off by a few pixels */ 
 	float: left;
     line-height: 1em;
     height: 1.15em;

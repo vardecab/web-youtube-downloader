@@ -16,7 +16,7 @@
 
 <body>
     <!-- ----- form to request URL ----- -->
-    <form method="post" action="/submit" onsubmit="return validateForm()">
+    <form method="post" action="/submit" onsubmit="return validateForm()"> <!-- validateForm: when user clicks submit button we check if the URL is a YouTube URL-->
 
         <!-- --------- flex layout --------- -->
 
@@ -38,12 +38,12 @@
         <div class="rowBottom">
             <!-- first checkbox — for users who want music extracted from the video -->
             <div class="box">
-                <label><input type="checkbox" name="downloadMusic" id="checkboxMusic">Download
+                <label><input type="radio" name="downloadMusic" id="checkboxMusic">Download
                     music</label> <!-- checkbox with `name` for Python script and `id` for JS and CSS -->
             </div>
             <!-- second checkbox — for users who want to download the whole video -->
             <div class="box">
-                <label><input type="checkbox" name="downloadVideo" id="checkboxVideo">Download
+                <label><input type="radio" name="downloadVideo" id="checkboxVideo">Download
                     video</label> <!-- checkbox with `name` for Python script and `id` for JS and CSS -->
             </div>
         </div>

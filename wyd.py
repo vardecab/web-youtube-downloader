@@ -28,7 +28,7 @@ def submit():
     # ---------------- URL --------------- #
 
     # take data from HTML input field and assign to a Python variable
-    url = request.form['url']
+    url = request.form['url'].strip() # get URL from input field without whitespaces 
 
     print(f"URL: {url}")  # status
 
