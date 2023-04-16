@@ -21,9 +21,9 @@ app = Flask(appName)  # use the name
 
 # ------------- functions ------------ #
 
-def downloadVideo(videoURL): # NOTE: working fine 
-    # Set up yt_dlp options
-    optionalParameters = { # TODO: downloads 19 MB instead of 80 MB
+def downloadVideo(videoURL): 
+    # set options for downloading the file
+    optionalParameters = { 
         'outtmpl': os.path.join(tempfile.gettempdir(), '%(title)s.%(ext)s'),
         'format': 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/mp4',
         'external_downloader': 'aria2c',
@@ -39,34 +39,38 @@ def downloadVideo(videoURL): # NOTE: working fine
         }]
     }
     
-    # Download the video using yt_dlp
+    # download the file
     with yt_dlp.YoutubeDL(optionalParameters) as ydl:
         info_dict = ydl.extract_info(videoURL, download=True)
         file_path = ydl.prepare_filename(info_dict)
     
-    # Send the downloaded file for download to the user's browser
+    # send the file for download to the user's browser
     return send_file(file_path, as_attachment=True)
-def downloadMusic(videoURL): # FIX: file is being downloaded probably but there is a problem with ff.. extraction/manipulation
-     # Set up yt_dlp options
+
+def downloadMusic(videoURL): 
+    # set options for downloading the file
     optionalParameters = { 
-        'outtmpl': os.path.join(tempfile.gettempdir(), '%(title)s.%(ext)s'),
+        # 'outtmpl': os.path.join(tempfile.gettempdir(), '%(title)s.%(ext)s'),
+        'outtmpl': os.path.join(tempfile.gettempdir(), '%(title)s.mp3'),
         'quiet': True, # don't throw status messages in the console
-        'format': 'bestaudio/best',
-        'postprocessors': [{
-            # extract music from video
-            'key': 'FFmpegExtractAudio', # extract audio from the video file
-            'preferredcodec': 'mp3', # codec
-            'preferredquality': '320', # 320 kbps
-        }]
+
+        # FIX: produces low-quality files
+        "format": "bestaudio/best",
+        # "outtmpl": "audio.mp3",
+        "extractaudio": True, # music
+        "audioquality": "320k", # 320 kbps 
+        "audioformat": "mp3",
+        
+        "noplaylist": True,
+        # "add-metadata": True
     }
-    # FIX: `FileNotFoundError: [WinError 2] The system cannot find the file specified: 'C:\\Users\\x\\AppData\\Local\\Temp\\Armin van Buuren feat. Sharon den Adel - In And Out Of Love (Official Music Video).webm'`
     
-    # Download the video using yt_dlp
+    # download the file
     with yt_dlp.YoutubeDL(optionalParameters) as ydl:
         info_dict = ydl.extract_info(videoURL, download=True)
         file_path = ydl.prepare_filename(info_dict)
     
-    # Send the downloaded file for download to the user's browser
+    # send the file for download to the user's browser
     return send_file(file_path, as_attachment=True)
 
 # --------------- core --------------- #
@@ -95,28 +99,28 @@ def submit():
 
     # and now check if we want music or video
     # takes from `name` of the field in HTML not ID; True if checked, else False
-    musicCheckbox = 'downloadMusic' in request.form
+    musicButton = 'downloadMusic' in request.form
     # takes from `name` of the field in HTML not ID; True if checked, else False
-    videoCheckbox = 'downloadVideo' in request.form
+    videoButton = 'downloadVideo' in request.form
 
-    # check if user wants a video (check if True (= checkbox ticked))
-    if videoCheckbox:
+    # check if user wants a video (check if True (= radio button selected))
+    if videoButton:
         print("Let's download some video.")  # status
         return downloadVideo(videoURL)
-    elif musicCheckbox:  # they don't want a video, they want music instead
+    elif musicButton:  # they don't want a video, they want music instead
         print("Let's download just music from that video.")  # status
         return downloadMusic(videoURL)
     else:  # nothing checked
         print("Nothing checked...")  # status
         return f'URL is: {videoURL} but nothing was selected.'
     
-
 # ------------ run the app ----------- #
 
+os.environ['FLASK_ENV'] = 'production' # run app in production mode
+
 if __name__ == '__main__':  # common programming idiom that allows you to specify code that should only be executed if the Python script is run directly as the main program, rather than being imported as a module into another program
-    # run app in debug mode: auto-reload, error messages etc.
-    app.run(debug=True)
-    # app.run() # run app
+    # app.run(debug=True) # run app in debug mode: auto-reload, error messages etc.
+    app.run() # run app 
 
 # NOTE: to run the app: `python wyd.py` in Terminal`
 # NOTE: test URL: https://www.youtube.com/watch?v=dQw4w9WgXcQ

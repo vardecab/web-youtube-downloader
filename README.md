@@ -2,7 +2,7 @@
 
 ![Actively Maintained](https://img.shields.io/badge/Maintenance%20Level-Actively%20Maintained-green.svg)
 <br>
-![](https://img.shields.io/badge/platform-Windows-blue)
+<!-- ![](https://img.shields.io/badge/platform-Windows-blue) -->
 
 >Experimenting a bit with Flask.
 
@@ -25,7 +25,8 @@
 
 ## Release History
 
-- 0.8.1: Fixes for variable names after checkboxes were changed to radios.
+- 0.9: Changed app to production mode; changed how music is extracted from a video; last fixes to radio variable names. 
+- 0.8.1: Fixes to variable names after checkboxes were changed to radios.
 - 0.8: Changed checkboxes to radios; added `.strip()` method to trim whitespaces in URL.
 - 0.7: Added verification to input field to check if we have `youtube.com` or `youtu.be` URL; changed variable names to camelCase.
 - 0.6: Moved JavaScript to separate file; added gradient background; centered label for URL input field; aligned checkboxes with labels.
