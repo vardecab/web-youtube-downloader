@@ -1,30 +1,30 @@
-/* ---- check if checkbox ticked ---- */
+/* ---- check if radio selected ---- */
 
 document.addEventListener('DOMContentLoaded', () => { // run this when page is loaded
 
     // define 
-    const musicCheckbox = document.getElementById('checkboxMusic');
-    const videoCheckbox = document.getElementById('checkboxVideo');
+    const radioMusic = document.getElementById('radioMusic');
+    const radioVideo = document.getElementById('radioVideo');
     const submitButton = document.getElementById("buttonSubmit");
 
-    // see which checkbox is ticked
-    musicCheckbox.addEventListener('change', () => {
-        if (musicCheckbox.checked) {
-            videoCheckbox.checked = false;
+    // see which radio is selected
+    radioMusic.addEventListener('change', () => {
+        if (radioMusic.checked) {
+            radioVideo.checked = false;
         }
     });
 
-    videoCheckbox.addEventListener('change', () => {
-        if (videoCheckbox.checked) {
-            musicCheckbox.checked = false;
+    radioVideo.addEventListener('change', () => {
+        if (radioVideo.checked) {
+            radioMusic.checked = false;
         }
     });
 
-    // make sure checkbox is ticked before submitting the form so we know if user wants music or video
+    // make sure radio is selected before submitting the form so we know if user wants music or video
     function validateCheckboxes() {
         // define
-        const musicChecked = document.querySelector('#checkboxMusic').checked;
-        const videoChecked = document.querySelector('#checkboxVideo').checked;
+        const musicChecked = document.querySelector('#radioMusic').checked;
+        const videoChecked = document.querySelector('#radioVideo').checked;
         const submitButton = document.querySelector('button[type=submit]');
 
         if (!musicChecked && !videoChecked) {
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => { // run this when page is l
 
     validateCheckboxes();
 
-    const checkboxes = document.querySelectorAll('input[type=checkbox]');
+    const radios = document.querySelectorAll('input[type=radio]');
 
-    for (const checkbox of checkboxes) {
-        checkbox.addEventListener('change', validateCheckboxes);
+    for (const radio of radios) {
+        radio.addEventListener('change', validateCheckboxes);
     }
 
 /* ------ check if YouTube URL ------ */

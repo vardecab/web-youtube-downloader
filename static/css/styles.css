@@ -42,7 +42,7 @@ input[type="text"] { /* center the label for URL input field*/
 	text-align: center;
 }
 
-input[type="radio"] { /* align checkbox with label so it doesn't look off by a few pixels */ 
+input[type="radio"] { /* align radios with labels so it doesn't look off by a few pixels */ 
 	float: left;
     line-height: 1em;
     height: 1.15em;

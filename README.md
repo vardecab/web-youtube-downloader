@@ -25,6 +25,7 @@
 
 ## Release History
 
+- 0.8.1: Fixes for variable names after checkboxes were changed to radios.
 - 0.8: Changed checkboxes to radios; added `.strip()` method to trim whitespaces in URL.
 - 0.7: Added verification to input field to check if we have `youtube.com` or `youtu.be` URL; changed variable names to camelCase.
 - 0.6: Moved JavaScript to separate file; added gradient background; centered label for URL input field; aligned checkboxes with labels.
