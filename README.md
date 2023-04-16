@@ -25,6 +25,7 @@
 
 ## Release History
 
+- 0.9.1: Prepared app to be hosted on PythonAnywhere, however it's not possible to access YouTube URLs on their free plan.
 - 0.9: Changed app to production mode; changed how music is extracted from a video; last fixes to radio variable names. 
 - 0.8.1: Fixes to variable names after checkboxes were changed to radios.
 - 0.8: Changed checkboxes to radios; added `.strip()` method to trim whitespaces in URL.

@@ -2,6 +2,8 @@
 #        web-youtube-downloader        #
 # ==================================== #
 
+# NOTE: can be hosted on PythonAnywhere - everything works
+
 # ------------ import libs ----------- #
 
 # Flask core ↓
@@ -118,9 +120,9 @@ def submit():
 
 os.environ['FLASK_ENV'] = 'production' # run app in production mode
 
-if __name__ == '__main__':  # common programming idiom that allows you to specify code that should only be executed if the Python script is run directly as the main program, rather than being imported as a module into another program
+# if __name__ == '__main__':  # common programming idiom that allows you to specify code that should only be executed if the Python script is run directly as the main program, rather than being imported as a module into another program
     # app.run(debug=True) # run app in debug mode: auto-reload, error messages etc.
-    app.run() # run app 
+    # app.run() # run app 
 
 # NOTE: to run the app: `python wyd.py` in Terminal`
 # NOTE: test URL: https://www.youtube.com/watch?v=dQw4w9WgXcQ
